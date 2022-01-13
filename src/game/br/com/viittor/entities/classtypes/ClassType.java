@@ -1,4 +1,4 @@
-package game.br.com.viittor.entities;
+package game.br.com.viittor.entities.classtypes;
 
 public class ClassType {
 	private int health;

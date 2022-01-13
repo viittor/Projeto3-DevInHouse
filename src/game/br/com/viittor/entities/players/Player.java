@@ -1,4 +1,4 @@
-package game.br.com.viittor.entities;
+package game.br.com.viittor.entities.players;
 
 public class Player {
 	private String name;
