@@ -1,5 +1,8 @@
 package game.br.com.viittor.entities.weapons;
 
-public class Weapon {
+public abstract class Weapon {
+	private int damage;
+
+
 
 }

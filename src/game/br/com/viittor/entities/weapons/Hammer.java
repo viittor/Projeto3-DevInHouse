@@ -1,5 +1,5 @@
 package game.br.com.viittor.entities.weapons;
 
-public class Hammer {
+public class Hammer extends Weapon{
 
 }

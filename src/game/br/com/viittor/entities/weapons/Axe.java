@@ -1,5 +1,5 @@
 package game.br.com.viittor.entities.weapons;
 
-public class Axe {
+public class Axe extends Weapon{
 
 }

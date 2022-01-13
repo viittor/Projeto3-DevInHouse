@@ -1,5 +1,5 @@
 package game.br.com.viittor.entities.weapons;
 
-public class Staff {
+public class Staff extends Weapon{
 
 }

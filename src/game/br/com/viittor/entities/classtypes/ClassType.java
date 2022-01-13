@@ -1,6 +1,6 @@
 package game.br.com.viittor.entities.classtypes;
 
-public class ClassType {
+public abstract class ClassType {
 	private int health;
 	private int defensePoints;
 	private int attackPoints;
