@@ -21,6 +21,10 @@ public abstract class ClassType {
 		return attackPoints;
 	}
 	
+	public int hardLevel() {
+		attackPoints = (int) (attackPoints * 0.90);
+		return attackPoints;
+	}
 	
 	
 
