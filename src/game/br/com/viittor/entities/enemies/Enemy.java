@@ -1,21 +1,29 @@
 package game.br.com.viittor.entities.enemies;
 
-public abstract class Enemy {
+public class Enemy {
 
-	private int damage;
+	private int attack;
 	private int health;
+	private int defense;
+	private int weapon;
 
-	public Enemy(int damage, int health) {
-		this.damage = damage;
+	public Enemy() {
+		super();
+	}
+
+	public Enemy(int damage, int health, int defense, int weapon) {
+		this.attack = damage;
 		this.health = health;
+		this.defense = defense;
+		this.weapon = weapon;
 	}
 
 	public int getDamage() {
-		return damage;
+		return attack;
 	}
 
 	public void setDamage(int damage) {
-		this.damage = damage;
+		this.attack = damage;
 	}
 
 	public int getHealth() {
@@ -27,7 +35,32 @@ public abstract class Enemy {
 	}
 
 	public int easyLevel() {
-		damage = (int) (damage * 0.80);
-		return damage;
+		attack = (int) (attack * 0.80);
+		return attack;
 	}
+
+	public int getDefense() {
+		return defense;
+	}
+
+	public void setDefense(int defense) {
+		this.defense = defense;
+	}
+
+	public int getAttack() {
+		return attack;
+	}
+
+	public void setAttack(int attack) {
+		this.attack = attack;
+	}
+
+	public int getWeapon() {
+		return weapon;
+	}
+
+	public void setWeapon(int weapon) {
+		this.weapon = weapon;
+	}
+
 }

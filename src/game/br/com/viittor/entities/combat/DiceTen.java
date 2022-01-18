@@ -1,4 +1,4 @@
-package game.br.com.viittor.entities.dices;
+package game.br.com.viittor.entities.combat;
 
 import java.util.Random;
 

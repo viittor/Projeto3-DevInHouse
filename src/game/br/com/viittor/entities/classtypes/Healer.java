@@ -1,21 +1,18 @@
-package game.br.com.viittor.entities.classtypes;
-
-import java.util.Scanner;
+package game.br.com.viittor.entities.classTypes;
 
 import game.br.com.viittor.entities.weapons.Hammer;
 import game.br.com.viittor.entities.weapons.Staff;
 
-public class Healer extends ClassType {
+public class Healer extends ClassTypes {
+
 	// Instance of Weapons
 	Staff staff = new Staff(10);// cajado
 	Hammer hammer = new Hammer(15);// martelo
 
-	Scanner keyboard = new Scanner(System.in);
-
-	public Healer(int defensePoints, int attackPoints) {
-		super(defensePoints, attackPoints);
-	}
-
+	public Healer(int attackPoints, int defensePoints) {
+		super(attackPoints, defensePoints);
+		}
+	
 	public Staff getStaff() {
 		return staff;
 	}

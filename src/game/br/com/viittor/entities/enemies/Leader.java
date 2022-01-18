@@ -1,9 +1,17 @@
 package game.br.com.viittor.entities.enemies;
 
-public class Leader extends Enemy{
+import game.br.com.viittor.entities.weapons.Axe;
 
-	public Leader(int damage, int health) {
-		super(damage, health);
+public class Leader extends Enemy {
+
+	Axe axe = new Axe(20);
+
+	public Leader(int damage, int health, int defense, int weapon) {
+		super(damage, health, defense, weapon);
+	}
+
+	public Axe getAxe() {
+		return axe;
 	}
 
 }
