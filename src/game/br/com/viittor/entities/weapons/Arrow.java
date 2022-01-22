@@ -6,4 +6,9 @@ public class Arrow extends Weapon{
 		super(damage);
 	}
 
+	public String complement() {
+		String complement = "com seu Arco e a Flexa atingiu o inimigo ";
+		return complement;
+	}
+
 }

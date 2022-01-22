@@ -6,4 +6,8 @@ public class CrossBow extends Weapon{
 		super(damage);
 	}
 
+	public String complement() {
+		String complement = "com sua Besta e o Virote atingiu o inimigo ";
+		return complement;
+	}
 }

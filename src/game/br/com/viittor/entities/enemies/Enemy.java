@@ -6,24 +6,16 @@ public class Enemy {
 	private int health;
 	private int defense;
 	private int weapon;
-
+	
 	public Enemy() {
 		super();
 	}
 
-	public Enemy(int damage, int health, int defense, int weapon) {
-		this.attack = damage;
+	public Enemy(int attack, int health, int defense, int weapon) {
+		this.attack = attack;
 		this.health = health;
 		this.defense = defense;
 		this.weapon = weapon;
-	}
-
-	public int getDamage() {
-		return attack;
-	}
-
-	public void setDamage(int damage) {
-		this.attack = damage;
 	}
 
 	public int getHealth() {
@@ -62,5 +54,5 @@ public class Enemy {
 	public void setWeapon(int weapon) {
 		this.weapon = weapon;
 	}
-
+	
 }

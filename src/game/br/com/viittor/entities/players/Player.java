@@ -18,26 +18,29 @@ public class Player {
 	private String nameMotivation;
 	private int defensePoints;
 	private int attackPoints; // ataque personagem
+	private int health;
+	private String weaponComplement;
 
 	Gender playerGender = new Gender();
 
 	Scanner keyboard = new Scanner(System.in);
 
 	// Instance of ClassTypes
-	Healer healer = new Healer(400, 10);
-	Warrior warrior = new Warrior(300, 15);
-	Wizard wizard = new Wizard(250, 20);
-	
+	Healer healer = new Healer(10, 20);
+	Warrior warrior = new Warrior(10, 20);
+	Wizard wizard = new Wizard(10, 20);
+
 	public Player() {
 		super();
 	}
 
-	public Player(String name, int gender, int classType, int weaponDamage) {
+	public Player(String name, int gender, int classType, int weaponDamage, int health) {
 		super();
 		this.name = name;
 		this.gender = gender;
 		this.classType = classType;
 		this.weaponDamage = weaponDamage;
+		this.health = health;
 	}
 
 	public String getName() {
@@ -152,6 +155,18 @@ public class Player {
 		this.wizard = wizard;
 	}
 
+	public int getHealth() {
+		return health;
+	}
+
+	public void setHealth(int health) {
+		this.health = health;
+	}
+
+	public String getWeaponComplement() {
+		return weaponComplement;
+	}
+
 	// Gender
 //		1 - Masculino
 //		2 - Feminino
@@ -196,7 +211,30 @@ public class Player {
 			suffixUm = suffix;
 		}
 		return suffixUm;
+	}
 
+	public String setSuffixUA() {
+		String suffixUA;
+		if (this.gender == 1) {
+			suffixUA = "eu";
+		} else if (this.gender == 2) {
+			suffixUA = "ua";
+		} else {
+			suffixUA = "eu(sua)";
+		}
+		return suffixUA;
+	}
+
+	public String setSuffixNA() {
+		String suffixNA;
+		if (this.gender == 1) {
+			suffixNA = "ói";
+		} else if (this.gender == 2) {
+			suffixNA = "oína";
+		} else {
+			suffixNA = "ói(na)";
+		}
+		return suffixNA;
 	}
 
 	// Set ClassType Name
@@ -213,7 +251,7 @@ public class Player {
 	// Set ClassType
 	public void setClasstypeMethod() {
 		System.out.printf(
-				"Escolha uma classe de combate:\n1 - Curandeiro (Vida: %d Pontos | Força do Ataque: %d pontos)\n2 - Guerreiro (Vida: %d Pontos | Força do Ataque: %d pontos)\n3 - Mago (Vida: %d Pontos | Força do Ataque: %d pontos)\n",
+				"Escolha uma classe de combate:\n1 - Curandeiro (Defesa: %d Pontos | Ataque: %d pontos)\n2 - Guerreiro (Defesa: %d Pontos | Ataque: %d pontos)\n3 - Mago (Defesa: %d Pontos | Ataque: %d pontos)\n",
 				healer.getDefensePoints(), healer.getAttackPoints(), warrior.getDefensePoints(),
 				warrior.getAttackPoints(), wizard.getDefensePoints(), wizard.getAttackPoints());
 		System.out.print("Sua escolha: ");
@@ -245,10 +283,12 @@ public class Player {
 				System.out.println("\nVocê escolheu usar o Cajado!");
 				this.setWeaponDamage(healer.getStaff().getDamage());
 				this.setNameWeapon("Cajado");
+				this.weaponComplement = healer.getStaff().complement();
 			} else if (numberWeapon == 2) {
 				System.out.println("\nVocê escolheu usar o Martelo!");
 				this.setWeaponDamage(healer.getHammer().getDamage());
 				this.setNameWeapon("Martelo");
+				this.weaponComplement = healer.getHammer().complement();
 			}
 		} else if (this.classType == 2) {
 			// Warrior
@@ -260,14 +300,17 @@ public class Player {
 				System.out.println("\nVocê escolheu usar o Machado!");
 				this.setWeaponDamage(warrior.getAxe().getDamage());
 				this.setNameWeapon("Machado");
+				this.weaponComplement = warrior.getAxe().complement();
 			} else if (numberWeapon == 2) {
 				System.out.println("\nVocê escolheu usar a Espada!");
 				this.setWeaponDamage(warrior.getSword().getDamage());
 				this.setNameWeapon("Espada");
+				this.weaponComplement = warrior.getSword().complement();
 			} else if (numberWeapon == 3) {
 				System.out.println("\nVocê escolheu usar o Arco e Flecha!");
 				this.setWeaponDamage(warrior.getArrow().getDamage());
 				this.setNameWeapon("Arco e Flecha");
+				this.weaponComplement = warrior.getArrow().complement();
 
 			}
 		} else if (this.classType == 3) {
@@ -279,11 +322,12 @@ public class Player {
 				System.out.println("\nVocê escolheu usar o Livro!");
 				this.setWeaponDamage(wizard.getBook().getDamage());
 				this.setNameWeapon("Livro");
+				this.weaponComplement = wizard.getBook().complement();
 			} else if (numberWeapon == 2) {
 				System.out.println("\nVocê escolheu usar a Besta e Virote!");
 				this.setWeaponDamage(wizard.getCrossBow().getDamage());
 				this.setNameWeapon("Besta e Virote");
-
+				this.weaponComplement = wizard.getCrossBow().complement();
 			}
 		}
 
