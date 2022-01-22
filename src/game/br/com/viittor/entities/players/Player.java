@@ -26,9 +26,9 @@ public class Player {
 	Scanner keyboard = new Scanner(System.in);
 
 	// Instance of ClassTypes
-	Healer healer = new Healer(10, 20);
-	Warrior warrior = new Warrior(10, 20);
-	Wizard wizard = new Wizard(10, 20);
+	Healer healer = new Healer(10, 10);
+	Warrior warrior = new Warrior(10, 10);
+	Wizard wizard = new Wizard(10, 10);
 
 	public Player() {
 		super();
@@ -256,6 +256,7 @@ public class Player {
 				warrior.getAttackPoints(), wizard.getDefensePoints(), wizard.getAttackPoints());
 		System.out.print("Sua escolha: ");
 		this.setClassType(keyboard.nextInt());
+		System.out.println("");
 		this.changeClassType();
 
 		// Set Attack and defense points
@@ -331,21 +332,6 @@ public class Player {
 			}
 		}
 
-	}
-
-	// Set Motivation
-	public void changeMotivation() {
-		System.out.println("Escolha sua motivação para invadir a caverna do inimigo e derrotá-lo:\n" + "1 - Vingança\n"
-				+ "2 - Glória");
-		System.out.print("Sua escolha: ");
-		this.motivation = keyboard.nextInt();
-		if (motivation == 1) {
-			this.nameMotivation = "Vingança";
-		} else if (motivation == 2) {
-			this.nameMotivation = "Glória";
-		}
-
-		System.out.printf("Você escolheu %s\n\n", this.getNameMotivation());
 	}
 
 }
