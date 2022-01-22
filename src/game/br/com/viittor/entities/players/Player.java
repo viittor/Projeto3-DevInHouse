@@ -1,5 +1,6 @@
 package game.br.com.viittor.entities.players;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import game.br.com.viittor.entities.classTypes.Healer;
@@ -173,21 +174,38 @@ public class Player {
 //		3 - Prefiro não dizer
 	// Get Player Gender
 	public void defineGender() {
-		System.out.println("\nEscolha o número correspondente ao seu gênero: ");
-		System.out.println("1 - Masculino\n" + "2 - Feminino\n" + "3 - Prefiro não dizer");
-		System.out.print("Sua escolha: ");
-		do {
-			this.setGender(keyboard.nextInt());
-			if (this.getGender() == 1) {
-				System.out.println("\nMasculino selecionado!\n");
-			} else if (this.getGender() == 2) {
-				System.out.println("\nFeminino selecionado!\n");
-			} else if (this.getGender() == 3) {
-				System.out.println("\nNenhum gênero selecionado!\n");
-			} else {
-				System.out.print("Opção Inválida!\n" + "Por favor insira o numero da opção que deseja: ");
+		this.gender = 0;
+		while (this.gender != 1 || this.gender != 2 || this.gender != 3) {
+			try {
+				System.out.println("========================================");
+				System.out.println("ESCOLHA O NÚMERO CORRESPONDENTE AO SEU GÊNERO: ");
+				System.out.println("1 - Masculino\n" + "2 - Feminino\n" + "3 - Prefiro não dizer");
+				System.out.print("Sua escolha: ");
+				this.setGender(keyboard.nextInt());
+
+				if (this.gender == 1) {
+					System.out.println("========================================");
+					System.out.println("Masculino selecionado!");
+					System.out.println("========================================\n");
+					break;
+				} else if (this.gender == 2) {
+					System.out.println("========================================");
+					System.out.println("Feminino selecionado!");
+					System.out.println("========================================\n");
+					break;
+				} else if (this.gender == 3) {
+					System.out.println("========================================");
+					System.out.println("Nenhum gênero selecionado!");
+					System.out.println("========================================\n");
+					break;
+				}
+			} catch (InputMismatchException exception) {
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				System.out.println("Opção Inválida! Por favor digite apenas números!");
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+				keyboard.next();
 			}
-		} while (this.getGender() < 1 || this.getGender() > 3);
+		}
 	}
 
 	// Set Suffix
@@ -237,6 +255,45 @@ public class Player {
 		return suffixNA;
 	}
 
+	// Set ClassType
+	public void setClasstypeMethod() {
+		this.setClassType(0);
+		while (this.getClassType() != 1 || this.getClassType() != 2 || this.getClassType() != 3) {
+			try {
+				System.out.println("========================================");
+				System.out.printf(
+						"ESCOLHA UMA CLASSE DE COMBATE:\n1 - Curandeiro (Defesa: %d Pontos | Ataque: %d pontos)\n2 - Guerreiro (Defesa: %d Pontos | Ataque: %d pontos)\n3 - Mago (Defesa: %d Pontos | Ataque: %d pontos)\n",
+						healer.getDefensePoints(), healer.getAttackPoints(), warrior.getDefensePoints(),
+						warrior.getAttackPoints(), wizard.getDefensePoints(), wizard.getAttackPoints());
+				System.out.print("Sua escolha: ");
+				this.setClassType(keyboard.nextInt());
+				System.out.println("");
+				this.changeClassType();
+
+				// Set Attack and defense points
+				if (this.getClassType() == 1) {
+					this.setAttackPoints(healer.getAttackPoints());
+					this.setDefensePoints(healer.getDefensePoints());
+					break;
+				} else if (this.getClassType() == 2) {
+					this.setAttackPoints(warrior.getAttackPoints());
+					this.setDefensePoints(warrior.getDefensePoints());
+					break;
+				} else if (this.getClassType() == 3) {
+					this.setAttackPoints(wizard.getAttackPoints());
+					this.setDefensePoints(wizard.getDefensePoints());
+					break;
+				}
+
+			} catch (InputMismatchException exception) {
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				System.out.println("Opção Inválida! Por favor digite apenas números!");
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+				keyboard.next();
+			}
+		}
+	}
+
 	// Set ClassType Name
 	public void changeClassType() {
 		if (this.getClassType() == 1) {
@@ -248,87 +305,112 @@ public class Player {
 		}
 	}
 
-	// Set ClassType
-	public void setClasstypeMethod() {
-		System.out.printf(
-				"Escolha uma classe de combate:\n1 - Curandeiro (Defesa: %d Pontos | Ataque: %d pontos)\n2 - Guerreiro (Defesa: %d Pontos | Ataque: %d pontos)\n3 - Mago (Defesa: %d Pontos | Ataque: %d pontos)\n",
-				healer.getDefensePoints(), healer.getAttackPoints(), warrior.getDefensePoints(),
-				warrior.getAttackPoints(), wizard.getDefensePoints(), wizard.getAttackPoints());
-		System.out.print("Sua escolha: ");
-		this.setClassType(keyboard.nextInt());
-		System.out.println("");
-		this.changeClassType();
-
-		// Set Attack and defense points
-		if (this.getClassType() == 1) {
-			this.setAttackPoints(healer.getAttackPoints());
-			this.setDefensePoints(healer.getDefensePoints());
-		} else if (this.getClassType() == 2) {
-			this.setAttackPoints(warrior.getAttackPoints());
-			this.setDefensePoints(warrior.getDefensePoints());
-		} else if (this.getClassType() == 3) {
-			this.setAttackPoints(wizard.getAttackPoints());
-			this.setDefensePoints(wizard.getDefensePoints());
-		}
-	}
-
 	// Set Weapon
 	public void changeWeapon() {
 		int numberWeapon = 0;
 		if (this.classType == 1) {
 			// Healer
-			System.out.println("1 -  Cajado (Força do ataque: 10)\n" + "2 - Martelo (Força do ataque: 15)\n");
-			System.out.print("Sua escolha: ");
-			numberWeapon = keyboard.nextInt();
-			if (numberWeapon == 1) {
-				System.out.println("\nVocê escolheu usar o Cajado!");
-				this.setWeaponDamage(healer.getStaff().getDamage());
-				this.setNameWeapon("Cajado");
-				this.weaponComplement = healer.getStaff().complement();
-			} else if (numberWeapon == 2) {
-				System.out.println("\nVocê escolheu usar o Martelo!");
-				this.setWeaponDamage(healer.getHammer().getDamage());
-				this.setNameWeapon("Martelo");
-				this.weaponComplement = healer.getHammer().complement();
+			while (numberWeapon != 1 || numberWeapon != 2) {
+				try {
+					System.out.println("1 -  Cajado (Força do ataque: 10)\n" + "2 - Martelo (Força do ataque: 15)\n");
+					System.out.print("Sua escolha: ");
+					numberWeapon = keyboard.nextInt();
+					if (numberWeapon == 1) {
+						System.out.println("========================================");
+						System.out.println("Você escolheu usar o Cajado!");
+						System.out.println("========================================\n");
+						this.setWeaponDamage(healer.getStaff().getDamage());
+						this.setNameWeapon("Cajado");
+						this.weaponComplement = healer.getStaff().complement();
+						break;
+					} else if (numberWeapon == 2) {
+						System.out.println("========================================");
+						System.out.println("Você escolheu usar o Martelo!");
+						System.out.println("========================================\n");
+						this.setWeaponDamage(healer.getHammer().getDamage());
+						this.setNameWeapon("Martelo");
+						this.weaponComplement = healer.getHammer().complement();
+						break;
+					}
+				} catch (InputMismatchException exception) {
+					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+					System.out.println("Opção Inválida! Por favor digite apenas números!");
+					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+					keyboard.next();
+				}
 			}
+
 		} else if (this.classType == 2) {
 			// Warrior
-			System.out.println("1 -  Machado (Força do ataque: 20)\n" + "2 - Espada (Força do ataque: 20)\n"
-					+ "3 - Arco (Força do ataque: 15)");
-			System.out.print("Sua escolha: ");
-			numberWeapon = keyboard.nextInt();
-			if (numberWeapon == 1) {
-				System.out.println("\nVocê escolheu usar o Machado!");
-				this.setWeaponDamage(warrior.getAxe().getDamage());
-				this.setNameWeapon("Machado");
-				this.weaponComplement = warrior.getAxe().complement();
-			} else if (numberWeapon == 2) {
-				System.out.println("\nVocê escolheu usar a Espada!");
-				this.setWeaponDamage(warrior.getSword().getDamage());
-				this.setNameWeapon("Espada");
-				this.weaponComplement = warrior.getSword().complement();
-			} else if (numberWeapon == 3) {
-				System.out.println("\nVocê escolheu usar o Arco e Flecha!");
-				this.setWeaponDamage(warrior.getArrow().getDamage());
-				this.setNameWeapon("Arco e Flecha");
-				this.weaponComplement = warrior.getArrow().complement();
-
+			while (numberWeapon != 1 || numberWeapon != 2 || numberWeapon != 3) {
+				try {
+					System.out.println("========================================");
+					System.out.println("1 -  Machado (Força do ataque: 20)\n" + "2 - Espada (Força do ataque: 20)\n"
+							+ "3 - Arco (Força do ataque: 15)");
+					System.out.print("Sua escolha: ");
+					numberWeapon = keyboard.nextInt();
+					if (numberWeapon == 1) {
+						System.out.println("========================================");
+						System.out.println("Você escolheu usar o Machado!");
+						System.out.println("========================================\n");
+						this.setWeaponDamage(warrior.getAxe().getDamage());
+						this.setNameWeapon("Machado");
+						this.weaponComplement = warrior.getAxe().complement();
+						break;
+					} else if (numberWeapon == 2) {
+						System.out.println("========================================");
+						System.out.println("Você escolheu usar a Espada!");
+						System.out.println("========================================\n");
+						this.setWeaponDamage(warrior.getSword().getDamage());
+						this.setNameWeapon("Espada");
+						this.weaponComplement = warrior.getSword().complement();
+						break;
+					} else if (numberWeapon == 3) {
+						System.out.println("========================================");
+						System.out.println("Você escolheu usar o Arco e Flecha!");
+						System.out.println("========================================\n");
+						this.setWeaponDamage(warrior.getArrow().getDamage());
+						this.setNameWeapon("Arco e Flecha");
+						this.weaponComplement = warrior.getArrow().complement();
+						break;
+					}
+				} catch (InputMismatchException exception) {
+					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+					System.out.println("Opção Inválida! Por favor digite apenas números!");
+					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+					keyboard.next();
+				}
 			}
 		} else if (this.classType == 3) {
 			// Wizard
-			System.out.println("1 -  Livro (Força do ataque: 20)\n" + "2 - Besta (Força do ataque: 15)\n");
-			System.out.print("Sua escolha: ");
-			numberWeapon = keyboard.nextInt();
-			if (numberWeapon == 1) {
-				System.out.println("\nVocê escolheu usar o Livro!");
-				this.setWeaponDamage(wizard.getBook().getDamage());
-				this.setNameWeapon("Livro");
-				this.weaponComplement = wizard.getBook().complement();
-			} else if (numberWeapon == 2) {
-				System.out.println("\nVocê escolheu usar a Besta e Virote!");
-				this.setWeaponDamage(wizard.getCrossBow().getDamage());
-				this.setNameWeapon("Besta e Virote");
-				this.weaponComplement = wizard.getCrossBow().complement();
+			while (numberWeapon != 1 || numberWeapon != 2) {
+				try {
+					System.out.println("1 -  Livro (Força do ataque: 20)\n" + "2 - Besta (Força do ataque: 15)\n");
+					System.out.print("Sua escolha: ");
+					numberWeapon = keyboard.nextInt();
+					if (numberWeapon == 1) {
+						System.out.println("========================================");
+						System.out.println("Você escolheu usar o Livro!");
+						System.out.println("========================================\n");
+						this.setWeaponDamage(wizard.getBook().getDamage());
+						this.setNameWeapon("Livro");
+						this.weaponComplement = wizard.getBook().complement();
+						break;
+					} else if (numberWeapon == 2) {
+						System.out.println("========================================");
+						System.out.println("Você escolheu usar a Besta e Virote!");
+						System.out.println("========================================\n");
+						this.setWeaponDamage(wizard.getCrossBow().getDamage());
+						this.setNameWeapon("Besta e Virote");
+						this.weaponComplement = wizard.getCrossBow().complement();
+						break;
+					}
+				} catch (InputMismatchException exception) {
+					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+					System.out.println("Opção Inválida! Por favor digite apenas números!");
+					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+					keyboard.next();
+				}
 			}
 		}
 

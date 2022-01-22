@@ -1,5 +1,6 @@
 package game.br.com.viittor.entities.combat;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -99,31 +100,53 @@ public class Combat {
 
 	// Set Motivation
 	public void changeMotivation() {
-		System.out.println("Escolha sua motivação para invadir a caverna do inimigo e derrotá-lo:\n" + "1 - Vingança\n"
-				+ "2 - Glória");
-		System.out.print("Sua escolha: ");
-		this.player.setMotivation(keyboard.nextInt());
-		System.out.println("");
-		if (this.player.getMotivation() == 1) {
-			this.player.setNameMotivation("Vingança");
-		} else if (this.player.getMotivation() == 2) {
-			this.player.setNameMotivation("Glória");
+		this.player.setMotivation(0);
+		while (this.player.getMotivation() != 1 || this.player.getMotivation() != 2) {
+			try {
+				System.out.println("========================================");
+				System.out.println("ESCOLHA SUA MOTIVAÇÃO PARA INVADIR A CAVERNA DO INIMIGO E DERROTÁ-LO:\n"
+						+ "1 - Vingança\n" + "2 - Glória");
+				System.out.print("Sua escolha: ");
+				this.player.setMotivation(keyboard.nextInt());
+				System.out.println("");
+				if (this.player.getMotivation() == 1) {
+					this.player.setNameMotivation("Vingança");
+					System.out.println("========================================");
+					System.out.printf("Você escolheu %s%n", this.player.getNameMotivation());
+					System.out.println("========================================\n");
+					break;
+				} else if (this.player.getMotivation() == 2) {
+					this.player.setNameMotivation("Glória");
+					System.out.println("========================================");
+					System.out.printf("Você escolheu %s%n", this.player.getNameMotivation());
+					System.out.println("========================================\n");
+					break;
+				}
+			} catch (InputMismatchException exception) {
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				System.out.println("Opção Inválida! Por favor digite apenas números!");
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+				keyboard.next();
+			}
 		}
-		System.out.printf("Você escolheu %s\n\n", this.player.getNameMotivation());
 	}
 
 	// Finish enemy
 	public void finishEnemy() {
 		if (this.getPlayer().getHealth() <= 0) {
 			if (this.player.getMotivation() == 1) {
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				System.out.println(
 						"Você não estava preparado para a força do inimigo. Não foi possível concluir sua vingança, e agora resta saber se alguém se vingará por você.");
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 				System.out.println("\n\n***** JOGO ENCERRADO *****");
 				System.exit(0);
 			} else if (this.getPlayer().getMotivation() == 2) {
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				System.out.printf(
 						"Você não estava preparado para a força do inimigo.A glória que buscavas não será sua, e a cidade aguarda por s%s próxim%s her%s.",
 						this.player.setSuffixUA(), this.player.getSuffix(), this.player.setSuffixNA());
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 				System.out.println("\n\n***** JOGO ENCERRADO *****");
 				System.exit(0);
 			}
@@ -135,25 +158,27 @@ public class Combat {
 		Random generator = new Random();
 		int dice = generator.nextInt(20) + 1;
 		int damageEnemy = this.enemy.getAttack() + this.enemy.getWeapon() + dice;
-		System.out.println(damageEnemy);
-		System.out.println(this.enemy.getAttack());
-		System.out.println(this.enemy.getWeapon());
-		System.out.println(dice);
 		if (dice == 1) {
 			damageEnemy = 0;
+			System.out.println("++++++++++++++++++++++++++++++++++++++++");
 			System.out.println("O inimigo errou o ataque! Você não sofreu nenhum dano.");
+			System.out.println("++++++++++++++++++++++++++++++++++++++++\n");
 		} else if (dice == 20) {
 			this.player.setHealth(this.player.getHealth() - damageEnemy);
 			this.finishEnemy();
+			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 			System.out.printf(
 					"O inimigo acertou um ataque crítico! Você sofreu %d de dano e agora\npossui %d pontos de vida.",
 					damageEnemy, this.player.getHealth());
+			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 		} else {
 			damageEnemy = damageEnemy - this.player.getDefensePoints();
 			this.player.setHealth(this.player.getHealth() - damageEnemy);
 			this.finishEnemy();
+			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 			System.out.printf("O inimigo atacou! Você sofreu %d de dano e agora possui %d pontos de vida.", damageEnemy,
 					this.player.getHealth());
+			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 		}
 
 	}
@@ -161,7 +186,9 @@ public class Combat {
 	// Finish Player
 	public void finishPlayer() {
 		if (this.enemy.getHealth() <= 0) {
+			System.out.println("++++++++++++++++++++++++++++++++++++++++");
 			System.out.println("Você derrotou o inimigo");
+			System.out.println("++++++++++++++++++++++++++++++++++++++++\n");
 		}
 
 	}
@@ -171,33 +198,53 @@ public class Combat {
 		Random generator = new Random();
 		int dice = generator.nextInt(20) + 1;
 		int damagePlayer = this.player.getAttackPoints() + this.player.getWeaponDamage() + dice;
-		System.out.println("Você deseja atacar ou fugir?\n" + "1 - Atacaaar!!!\n" + "2 - Fugir!");
-		System.out.print("Sua escolha: ");
-		int fightOrRun = keyboard.nextInt();
-		System.out.println("");
+
+		int fightOrRun = 0;
+		while (fightOrRun != 1 || fightOrRun != 2) {
+			try {
+				System.out.println("========================================");
+				System.out.println("VOCÊ DESEJA ATACAR OU FUGIR?\n" + "1 - Atacaaar!!!\n" + "2 - Fugir!");
+				System.out.print("Sua escolha: ");
+				fightOrRun = keyboard.nextInt();
+				System.out.println("");
+				break;
+			} catch (InputMismatchException exception) {
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				System.out.println("Opção Inválida! Por favor digite apenas números!");
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+				keyboard.next();
+			}
+		}
 
 		if (fightOrRun == 1) {
 			if (dice == 1) {
 				damagePlayer = 0;
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				System.out.println("Você errou o ataque! O inimigo não sofreu nenhum dano.");
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			} else if (dice == 20) {
 				this.enemy.setHealth(this.enemy.getHealth() - damagePlayer);
+				System.out.println("++++++++++++++++++++++++++++++++++++++++");
 				System.out.printf(
 						"Você acertou um ataque crítico! O inimigo sofreu %d de dano e agora\npossui %d pontos de vida.",
 						damagePlayer, this.enemy.getHealth());
+				System.out.println("++++++++++++++++++++++++++++++++++++++++\n");
 				this.finishPlayer();
 			} else {
 				damagePlayer = damagePlayer - this.enemy.getDefense();
 				this.enemy.setHealth(this.enemy.getHealth() - damagePlayer);
 				// **************************************
-				System.out.printf("Você atacou %s e causou %d de dano no inimigo!", player.getWeaponComplement(),
+				System.out.println("++++++++++++++++++++++++++++++++++++++++");
+				System.out.printf("Você atacou %s e causou %d de dano no inimigo!\n", player.getWeaponComplement(),
 						damagePlayer);
+				System.out.println("++++++++++++++++++++++++++++++++++++++++\n");
 				this.finishPlayer();
 			}
-
 		} else if (fightOrRun == 2) {
+			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			System.out.println(
 					"Você não estava preparado para a força do inimigo, e decide fugir para que possa tentar novamente em uma próxima vez.");
+			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			System.out.println("\n\n***** JOGO ENCERRADO *****");
 			System.exit(0);
 		}
