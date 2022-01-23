@@ -15,15 +15,15 @@ public class Combat {
 	Scanner keyboard = new Scanner(System.in);
 
 	// Instance of player
-	Player player = new Player(null, 0, 0, 0, 1000);
+	Player player = new Player(null, 0, 0, 0, 450);
 	// Variable to control initialPlayerHealth
 	int initialPlayerHealth = player.getHealth();
 
 	// Instance of enemy
 	Enemy enemy = new Enemy();
-	Gunman gunman = new Gunman(10, 100, 10, 10);
-	Alchemist alchemist = new Alchemist(10, 100, 10, 10);
-	Leader leader = new Leader(10, 100, 10, 10);
+	Gunman gunman = new Gunman(20, 150, 15, this.player.getWarrior().getSword().getDamage());
+	Alchemist alchemist = new Alchemist(15, 100, 15, this.player.getHealer().getStaff().getDamage());
+	Leader leader = new Leader(25, 300, 20, this.player.getWarrior().getAxe().getDamage());
 
 	public Player getPlayer() {
 		return player;
@@ -166,6 +166,9 @@ public class Combat {
 		} else if (dice == 20) {
 			this.player.setHealth(this.player.getHealth() - damageEnemy);
 			this.finishEnemy();
+			if (this.player.getHealth() < 0) {
+				this.player.setHealth(0);
+			}
 			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 			System.out.printf(
 					"O inimigo acertou um ataque crítico! Você sofreu %d de dano e agora\npossui %d pontos de vida.",
@@ -175,9 +178,12 @@ public class Combat {
 			damageEnemy = damageEnemy - this.player.getDefensePoints();
 			this.player.setHealth(this.player.getHealth() - damageEnemy);
 			this.finishEnemy();
+			if (this.player.getHealth() < 0) {
+				this.player.setHealth(0);
+			}
 			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-			System.out.printf("O inimigo atacou! Você sofreu %d de dano e agora possui %d pontos de vida.", damageEnemy,
-					this.player.getHealth());
+			System.out.printf("O INIMIGO ATACOU! VOCÊ SOFREU %d DE DANO E AGORA POSSUI %d PONTOS DE VIDA.\n",
+					damageEnemy, this.player.getHealth());
 			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 		}
 
@@ -186,9 +192,11 @@ public class Combat {
 	// Finish Player
 	public void finishPlayer() {
 		if (this.enemy.getHealth() <= 0) {
+			System.out.println("========================================");
 			System.out.println("++++++++++++++++++++++++++++++++++++++++");
-			System.out.println("Você derrotou o inimigo");
-			System.out.println("++++++++++++++++++++++++++++++++++++++++\n");
+			System.out.println("VOCÊ DERROTOU O INIMIGO!");
+			System.out.println("++++++++++++++++++++++++++++++++++++++++");
+			System.out.println("========================================\n");
 		}
 
 	}
@@ -220,23 +228,28 @@ public class Combat {
 			if (dice == 1) {
 				damagePlayer = 0;
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				System.out.println("Você errou o ataque! O inimigo não sofreu nenhum dano.");
+				System.out.println("VOCÊ ERROU O ATAQUE! O INIMIGO NÃO SOFREU NENHUM DANO.");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			} else if (dice == 20) {
 				this.enemy.setHealth(this.enemy.getHealth() - damagePlayer);
+				if (this.enemy.getHealth() < 0) {
+					this.enemy.setHealth(0);
+				}
 				System.out.println("++++++++++++++++++++++++++++++++++++++++");
 				System.out.printf(
-						"Você acertou um ataque crítico! O inimigo sofreu %d de dano e agora\npossui %d pontos de vida.",
+						"VOCÊ ACERTOU UM ATAQUE CRÍTICO! O INIMIGO SOFREU %d DE DANO E AGORA POSSUI %d PONTOS DE VIDA.",
 						damagePlayer, this.enemy.getHealth());
 				System.out.println("++++++++++++++++++++++++++++++++++++++++\n");
 				this.finishPlayer();
 			} else {
 				damagePlayer = damagePlayer - this.enemy.getDefense();
 				this.enemy.setHealth(this.enemy.getHealth() - damagePlayer);
-				// **************************************
+				if (this.enemy.getHealth() < 0) {
+					this.enemy.setHealth(0);
+				}
 				System.out.println("++++++++++++++++++++++++++++++++++++++++");
-				System.out.printf("Você atacou %s e causou %d de dano no inimigo!\n", player.getWeaponComplement(),
-						damagePlayer);
+				System.out.printf("VOCÊ ATACOU %s E CAUSOU %d DE DANO NO INIMIGO! ELE POSSUI %d PONTOS DE VIDA\n",
+						player.getWeaponComplement(), damagePlayer, this.enemy.getHealth());
 				System.out.println("++++++++++++++++++++++++++++++++++++++++\n");
 				this.finishPlayer();
 			}
@@ -254,6 +267,14 @@ public class Combat {
 	// Combat Loop
 	public void combatLoop() {
 		while (player.getHealth() > 0 && enemy.getHealth() > 0) {
+			System.out.println("\n========================================");
+			System.out.println("   ***   ***   *   *  ****    ***   *****");
+			System.out.println("  *     *   * * * * * *   *  *   *    *  ");
+			System.out.println("  *     *   * *  *  * ****  * * * *   *  ");
+			System.out.println("  *     *   * *     * *   * *     *   *  ");
+			System.out.println("   * *   ***  *     * ****  *     *   *  ");
+			System.out.println("========================================\n");
+
 			this.attackEnemy();
 			this.attackPlayer();
 		}

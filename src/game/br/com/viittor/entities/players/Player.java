@@ -13,12 +13,12 @@ public class Player {
 	private int classType;
 	private String nameClassType;
 	private String suffix;
-	private int weaponDamage; // ataque arma
+	private int weaponDamage;
 	private String nameWeapon;
 	private int motivation;
 	private String nameMotivation;
 	private int defensePoints;
-	private int attackPoints; // ataque personagem
+	private int attackPoints;
 	private int health;
 	private String weaponComplement;
 
@@ -27,9 +27,9 @@ public class Player {
 	Scanner keyboard = new Scanner(System.in);
 
 	// Instance of ClassTypes
-	Healer healer = new Healer(10, 10);
-	Warrior warrior = new Warrior(10, 10);
-	Wizard wizard = new Wizard(10, 10);
+	Healer healer = new Healer(10, 15);
+	Warrior warrior = new Warrior(20, 10);
+	Wizard wizard = new Wizard(15, 15);
 
 	public Player() {
 		super();
@@ -168,10 +168,6 @@ public class Player {
 		return weaponComplement;
 	}
 
-	// Gender
-//		1 - Masculino
-//		2 - Feminino
-//		3 - Prefiro não dizer
 	// Get Player Gender
 	public void defineGender() {
 		this.gender = 0;
@@ -200,7 +196,7 @@ public class Player {
 					break;
 				}
 			} catch (InputMismatchException exception) {
-				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				System.out.println("Opção Inválida! Por favor digite apenas números!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 				keyboard.next();
@@ -286,12 +282,15 @@ public class Player {
 				}
 
 			} catch (InputMismatchException exception) {
-				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				System.out.println("Opção Inválida! Por favor digite apenas números!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 				keyboard.next();
 			}
 		}
+		System.out.println("\n****************************************");
+		System.out.printf("Você escolheu ser %s!\n", this.getNameClassType());
+		System.out.println("****************************************\n");
 	}
 
 	// Set ClassType Name
@@ -333,7 +332,7 @@ public class Player {
 						break;
 					}
 				} catch (InputMismatchException exception) {
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+					System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 					System.out.println("Opção Inválida! Por favor digite apenas números!");
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 					keyboard.next();
@@ -375,7 +374,7 @@ public class Player {
 						break;
 					}
 				} catch (InputMismatchException exception) {
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+					System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 					System.out.println("Opção Inválida! Por favor digite apenas números!");
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 					keyboard.next();
@@ -406,7 +405,7 @@ public class Player {
 						break;
 					}
 				} catch (InputMismatchException exception) {
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+					System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 					System.out.println("Opção Inválida! Por favor digite apenas números!");
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 					keyboard.next();
