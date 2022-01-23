@@ -37,6 +37,7 @@ public class Main {
 				System.out.println("1 - Jogar\n" + "2 - Sair");
 				System.out.print("Sua escolha: ");
 				start = keyboard.nextInt();
+				System.out.println("");
 				if (start == 1) {
 					System.out.println("========================================");
 					System.out.println("    ***   *****   ***   ****   *****");
@@ -46,11 +47,13 @@ public class Main {
 					System.out.println("    ***     *   *     * *   *    *  ");
 					System.out.println("========================================\n");
 					break;
-				} else {
+				} else if (start == 2) {
 					System.out.println("***** JOGO ENCERRADO *****");
 					System.exit(0);// End game
 				}
-
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			} catch (InputMismatchException exception) {
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				System.out.println("Opção Inválida! Por favor digite apenas números!");
@@ -90,6 +93,11 @@ public class Main {
 					System.out.println("========================================\n");
 					break;
 				}
+
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+
 			} catch (InputMismatchException exception) {
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				System.out.println("Opção Inválida! Por favor digite apenas números!");
@@ -121,7 +129,8 @@ public class Main {
 		System.out.printf("  TOTAL DE VIDA: %d%n", combat.getPlayer().getHealth());
 		System.out.printf("  CLASSE: %s (Defesa: %d pontos | Ataque: %d)%n", combat.getPlayer().getNameClassType(),
 				combat.getPlayer().getDefensePoints(), combat.getPlayer().getAttackPoints());
-		System.out.printf("  ARMA: %s (Ataque: %d)%n", combat.getPlayer().getNameWeapon(), combat.getPlayer().getWeaponDamage());
+		System.out.printf("  ARMA: %s (Ataque: %d)%n", combat.getPlayer().getNameWeapon(),
+				combat.getPlayer().getWeaponDamage());
 		System.out.println("========================================\n");
 
 		System.out.println(
@@ -155,29 +164,33 @@ public class Main {
 				System.out.println("ESCOLHA O QUE QUER FAZER AGORA: \n" + "1 - Desistir\n" + "2 - Seguir em frente");
 				System.out.print("Sua escolha: ");
 				chooseWay = keyboard.nextInt();
-				break;
+
+				System.out.println("");
+
+				if (chooseWay == 1) {
+					System.out.println(
+							"O medo invade o seu coração e você sente que ainda não está à altura do desafio. Você se volta para a noite lá fora e corre em direção à segurança.");
+					System.out.println("***** JOGO ENCERRADO *****");
+					System.exit(0);// End game
+				} else if (chooseWay == 2) {
+					System.out.println(
+							"Você caminha, atento a todos os seus sentidos, por vários metros, até visualizar a frente uma fonte de luz, que você imagina ser a chama de uma tocha, vindo de dentro de uma porta aberta.");
+					System.out.println(
+							"Você se pergunta se dentro dessa sala pode haver inimigos, ou alguma armadilha, e pondera sobre como passar pela porta.\r\n"
+									+ "");
+					break;
+				}
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			} catch (InputMismatchException exception) {
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				System.out.println("Opção Inválida! Por favor digite apenas números!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				keyboard.next();
 			}
-		}
 
-		System.out.println("");
-
-		if (chooseWay == 1) {
-			System.out.println(
-					"O medo invade o seu coração e você sente que ainda não está à altura do desafio. Você se volta para a noite lá fora e corre em direção à segurança.");
-			System.out.println("***** JOGO ENCERRADO *****");
-			System.exit(0);// End game
-		} else if (chooseWay == 2) {
-			System.out.println(
-					"Você caminha, atento a todos os seus sentidos, por vários metros, até visualizar a frente uma fonte de luz, que você imagina ser a chama de uma tocha, vindo de dentro de uma porta aberta.");
 		}
-		System.out.println(
-				"Você se pergunta se dentro dessa sala pode haver inimigos, ou alguma armadilha, e pondera sobre como passar pela porta.\r\n"
-						+ "");
 
 		// Go through the door
 		int firstDoor = 0;
@@ -209,6 +222,9 @@ public class Main {
 							"Você se concentra e pula em direção à luz, saltando de antes da porta até o interior da sala.");
 					break;
 				}
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			} catch (InputMismatchException exception) {
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				System.out.println("Opção Inválida! Por favor digite apenas números!");
@@ -258,6 +274,9 @@ public class Main {
 					System.out.println("Você decide que não precisa utilizar nada que venha das mãos do inimigo.\n");
 					break;
 				}
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 
 			} catch (InputMismatchException exception) {
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
@@ -268,9 +287,15 @@ public class Main {
 		}
 
 		// ** Change Enemy **
+		combat.chooseAlchemist();
 
 		System.out.println(
 				"Em uma mesa, você encontra uma chave dourada, e sabe que aquela chave abre uma das fechaduras da porta do líder inimigo. Você pega a chave e guarda numa pequena bolsa que leva presa ao cinto.");
+
+		System.out.println(
+				"Você retorna à sala anterior e se dirige à porta da esquerda. Você se aproxima, tentando ouvir o que acontece porta adentro, mas não escuta nada. Segura com mais força sua arma com uma mão, enquanto empurra a porta com a outra. Ao entrar, você se depara com uma sala parecida com a do arsenal, mas em vez de armaduras, existem vários potes e garrafas de vidro com conteúdos misteriosos e de cores diversas, e você entende que o capitão que vive ali, realiza experimentos com diversos ingredientes, criando poções utilizadas pelos soldados para aterrorizar a região.\r\n"
+						+ "No fundo da sala, olhando em sua direção, está outro dos capitães do inimigo. Um orque horrendo, de armadura, cajado em punho, em posição de combate. Ele avança em sua direção.\r\n"
+						+ "");
 
 		// COMBAT LOOP
 		combat.combatLoop();
@@ -279,7 +304,6 @@ public class Main {
 				"Após derrotar o Alquimista, você olha em volta, tentando reconhecer alguma poção do estoque do inimigo. Em uma mesa, você reconhece uma pequena garrafa de vidro contendo um líquido levemente rosado, pega a garrafa e pondera se deve beber um gole.\n");
 
 		// Choose if drink potion
-
 		int drink = 0;
 		while (drink != 1 || drink != 2) {
 			try {
@@ -290,7 +314,7 @@ public class Main {
 				drink = keyboard.nextInt();
 				if (drink == 1) {
 					System.out.println("\n++++++++++++++++++++++++++++++++++++++++");
-					System.out.println("^VOCÊ SE SENTE REVIGORADO PARA SEGUIR ADIANTE!");
+					System.out.println("VOCÊ SE SENTE REVIGORADO PARA SEGUIR ADIANTE!");
 					combat.getPlayer().setHealth(combat.getInitialPlayerHealth());
 					System.out.printf("VOCÊ RECUPEROU TODOS OS SEUS PONTOS DE VIDA. SUA VIDA ATUAL É %d PONTOS\n",
 							combat.getPlayer().getHealth());
@@ -302,7 +326,9 @@ public class Main {
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 					break;
 				}
-
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			} catch (InputMismatchException exception) {
 				System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				System.out.println("Opção Inválida! Por favor digite apenas números!");
@@ -344,6 +370,9 @@ public class Main {
 					System.exit(0);
 				}
 
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			} catch (InputMismatchException exception) {
 				System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				System.out.println("Opção Inválida! Por favor digite apenas números!");

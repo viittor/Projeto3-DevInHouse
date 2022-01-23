@@ -195,6 +195,9 @@ public class Player {
 					System.out.println("========================================\n");
 					break;
 				}
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			} catch (InputMismatchException exception) {
 				System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				System.out.println("Opção Inválida! Por favor digite apenas números!");
@@ -280,7 +283,9 @@ public class Player {
 					this.setDefensePoints(wizard.getDefensePoints());
 					break;
 				}
-
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			} catch (InputMismatchException exception) {
 				System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				System.out.println("Opção Inválida! Por favor digite apenas números!");
@@ -331,6 +336,9 @@ public class Player {
 						this.weaponComplement = healer.getHammer().complement();
 						break;
 					}
+					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+					System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 				} catch (InputMismatchException exception) {
 					System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 					System.out.println("Opção Inválida! Por favor digite apenas números!");
@@ -373,6 +381,9 @@ public class Player {
 						this.weaponComplement = warrior.getArrow().complement();
 						break;
 					}
+					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+					System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 				} catch (InputMismatchException exception) {
 					System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 					System.out.println("Opção Inválida! Por favor digite apenas números!");
@@ -404,6 +415,9 @@ public class Player {
 						this.weaponComplement = wizard.getCrossBow().complement();
 						break;
 					}
+					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+					System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 				} catch (InputMismatchException exception) {
 					System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 					System.out.println("Opção Inválida! Por favor digite apenas números!");
