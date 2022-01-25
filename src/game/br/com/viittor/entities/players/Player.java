@@ -3,9 +3,9 @@ package game.br.com.viittor.entities.players;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import game.br.com.viittor.entities.classTypes.Healer;
-import game.br.com.viittor.entities.classTypes.Warrior;
-import game.br.com.viittor.entities.classTypes.Wizard;
+import game.br.com.viittor.entities.classtype.Healer;
+import game.br.com.viittor.entities.classtype.Warrior;
+import game.br.com.viittor.entities.classtype.Wizard;
 
 public class Player {
 	private String name;

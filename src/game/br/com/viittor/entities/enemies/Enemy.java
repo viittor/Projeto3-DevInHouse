@@ -6,7 +6,7 @@ public class Enemy {
 	private int health;
 	private int defense;
 	private int weapon;
-	
+
 	public Enemy() {
 		super();
 	}
@@ -54,5 +54,5 @@ public class Enemy {
 	public void setWeapon(int weapon) {
 		this.weapon = weapon;
 	}
-	
+
 }

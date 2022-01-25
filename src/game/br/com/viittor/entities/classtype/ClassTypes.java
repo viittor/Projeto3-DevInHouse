@@ -1,4 +1,4 @@
-package game.br.com.viittor.entities.classTypes;
+package game.br.com.viittor.entities.classtype;
 
 public class ClassTypes {
 
