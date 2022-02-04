@@ -124,14 +124,14 @@ public class Main {
 				combat.getPlayer().getNameClassType());
 		combat.getPlayer().changeWeapon();
 
-		System.out.println("\n=========== RESUMO DO JOGADOR ==========");
+		System.out.println("\n\n\n=========== RESUMO DO JOGADOR ==========");
 		System.out.printf("  JOGADOR: %s%n", combat.getPlayer().getName());
 		System.out.printf("  TOTAL DE VIDA: %d%n", combat.getPlayer().getHealth());
 		System.out.printf("  CLASSE: %s (Defesa: %d pontos | Ataque: %d)%n", combat.getPlayer().getNameClassType(),
 				combat.getPlayer().getDefensePoints(), combat.getPlayer().getAttackPoints());
 		System.out.printf("  ARMA: %s (Ataque: %d)%n", combat.getPlayer().getNameWeapon(),
 				combat.getPlayer().getWeaponDamage());
-		System.out.println("========================================\n");
+		System.out.println("========================================\n\n\n");
 
 		System.out.println(
 				"A noite se aproxima, a lua já surge no céu, estrelas vão se acendendo, e sob a luz do crepúsculo você está prestes a entrar na fase final da sua missão. Você olha para o portal à sua frente, e sabe que a partir desse ponto, sua vida mudará para sempre.\r\n"

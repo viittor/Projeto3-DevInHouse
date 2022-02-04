@@ -195,11 +195,15 @@ public class Combat {
 	// Finish Player
 	public void finishPlayer() {
 		if (this.enemy.getHealth() <= 0) {
-			System.out.println("========================================");
-			System.out.println("++++++++++++++++++++++++++++++++++++++++");
+			System.out.println("\n\n\n========================================");
+			System.out.println(" *     * *   *** *****  ***  ***  *   *");
+			System.out.println(" *     * *  *      *   *   * *  *  * *");
+			System.out.println("  *   *  * *       *   *   * ***    *");
+			System.out.println("   * *   *  *      *   *   * * *    *");
+			System.out.println("    *    *   ***   *    ***  *  *   *");
+			System.out.println("");
 			System.out.println("VOCÊ DERROTOU O INIMIGO!");
-			System.out.println("++++++++++++++++++++++++++++++++++++++++");
-			System.out.println("========================================\n");
+			System.out.println("========================================\n\n\n");
 		}
 
 	}
