@@ -52,11 +52,11 @@ public class Main {
 					System.exit(0);// End game
 				}
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("Opï¿½ï¿½o Invï¿½lida! Por favor digite apenas 1 nï¿½mero!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			} catch (InputMismatchException exception) {
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				System.out.println("Opção Inválida! Por favor digite apenas números!");
+				System.out.println("Opï¿½ï¿½o Invï¿½lida! Por favor digite apenas nï¿½meros!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 				keyboard.next();
 			}
@@ -68,7 +68,7 @@ public class Main {
 			try {
 				System.out.println("========================================");
 				System.out.println(
-						"ESCOLHA SEU NÍVEL DE DIFICULDADE:\n" + "1 - Fácil\n" + "2 - Normal\n" + "3 - Difícil");
+						"ESCOLHA SEU Nï¿½VEL DE DIFICULDADE:\n" + "1 - Fï¿½cil\n" + "2 - Normal\n" + "3 - Difï¿½cil");
 				System.out.print("Sua escolha: ");
 				difficulty = keyboard.nextInt();
 				if (difficulty == 1) {
@@ -76,7 +76,7 @@ public class Main {
 					combat.getAlchemist().easyLevel();
 					combat.getLeader().easyLevel();
 					System.out.println("========================================");
-					System.out.println("======= Nível Fácil Selecionado! =======");
+					System.out.println("======= Nï¿½vel Fï¿½cil Selecionado! =======");
 					System.out.println("========================================\n");
 					break;
 				} else if (difficulty == 3) {
@@ -84,23 +84,23 @@ public class Main {
 					combat.getPlayer().getWarrior().hardLevel();
 					combat.getPlayer().getWizard().hardLevel();
 					System.out.println("========================================");
-					System.out.println("====== Nível Difícil Selecionado! ======");
+					System.out.println("====== Nï¿½vel Difï¿½cil Selecionado! ======");
 					System.out.println("========================================\n");
 					break;
 				} else if (difficulty == 2) {
 					System.out.println("========================================");
-					System.out.println("====== Nível Normal Selecionado! =======");
+					System.out.println("====== Nï¿½vel Normal Selecionado! =======");
 					System.out.println("========================================\n");
 					break;
 				}
 
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("Opï¿½ï¿½o Invï¿½lida! Por favor digite apenas 1 nï¿½mero!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 
 			} catch (InputMismatchException exception) {
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				System.out.println("Opção Inválida! Por favor digite apenas números!");
+				System.out.println("Opï¿½ï¿½o Invï¿½lida! Por favor digite apenas nï¿½meros!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 				keyboard.next();
 			}
@@ -120,7 +120,7 @@ public class Main {
 		combat.getPlayer().setClasstypeMethod();
 
 		System.out.println("========================================");
-		System.out.printf("Agora que você é um%s %s, escolha uma arma:\n", combat.getPlayer().setSuffixUM(),
+		System.out.printf("Agora que vocï¿½ ï¿½ um%s %s, escolha uma arma:\n", combat.getPlayer().setSuffixUM(),
 				combat.getPlayer().getNameClassType());
 		combat.getPlayer().changeWeapon();
 
@@ -134,11 +134,11 @@ public class Main {
 		System.out.println("========================================\n\n\n");
 
 		System.out.println(
-				"A noite se aproxima, a lua já surge no céu, estrelas vão se acendendo, e sob a luz do crepúsculo você está prestes a entrar na fase final da sua missão. Você olha para o portal à sua frente, e sabe que a partir desse ponto, sua vida mudará para sempre.\r\n"
+				"A noite se aproxima, a lua jï¿½ surge no cï¿½u, estrelas vï¿½o se acendendo, e sob a luz do crepï¿½sculo vocï¿½ estï¿½ prestes a entrar na fase final da sua missï¿½o. Vocï¿½ olha para o portal ï¿½ sua frente, e sabe que a partir desse ponto, sua vida mudarï¿½ para sempre.\r\n"
 						+ "\r\n"
-						+ "Memórias do caminho percorrido para chegar até aqui invadem sua mente. Você se lembra de todos os inimigos já derrotados para alcançar o covil do líder maligno. Olha para seu equipamento de combate, já danificado e desgastado depois de tantas lutas. Você está a um passo de encerrar para sempre esse mal.\r\n"
+						+ "Memï¿½rias do caminho percorrido para chegar atï¿½ aqui invadem sua mente. Vocï¿½ se lembra de todos os inimigos jï¿½ derrotados para alcanï¿½ar o covil do lï¿½der maligno. Olha para seu equipamento de combate, jï¿½ danificado e desgastado depois de tantas lutas. Vocï¿½ estï¿½ a um passo de encerrar para sempre esse mal.\r\n"
 						+ "\r\n"
-						+ "Buscando uma injeção de ânimo, você se força a lembrar o que te trouxe até aqui.\r\n" + "");
+						+ "Buscando uma injeï¿½ï¿½o de ï¿½nimo, vocï¿½ se forï¿½a a lembrar o que te trouxe atï¿½ aqui.\r\n" + "");
 
 		// ChangeMotivation
 		combat.changeMotivation();
@@ -151,9 +151,9 @@ public class Main {
 		}
 
 		System.out.println(
-				"Inspirado pelo motivo que te trouxe até aqui, você sente seu coração ardendo em chamas, suas mãos formigarem em volta da sua arma. Você a segura com firmeza. Seu foco está renovado. Você avança pelo portal.\r\n"
+				"Inspirado pelo motivo que te trouxe atï¿½ aqui, vocï¿½ sente seu coraï¿½ï¿½o ardendo em chamas, suas mï¿½os formigarem em volta da sua arma. Vocï¿½ a segura com firmeza. Seu foco estï¿½ renovado. Vocï¿½ avanï¿½a pelo portal.\r\n"
 						+ "\r\n"
-						+ "A escuridão te envolve. Uma iluminação muito fraca entra pelo portal às suas costas. À sua frente, só é possível perceber que você se encontra em um corredor extenso. Você só pode ir à frente, ou desistir.\r\n"
+						+ "A escuridao te envolve. Uma iluminaï¿½ï¿½o muito fraca entra pelo portal ï¿½s suas costas. ï¿½ sua frente, sï¿½ ï¿½ possï¿½vel perceber que vocï¿½ se encontra em um corredor extenso. Vocï¿½ sï¿½ pode ir ï¿½ frente, ou desistir.\r\n"
 						+ "");
 
 		// Choose give up or move on
@@ -169,23 +169,23 @@ public class Main {
 
 				if (chooseWay == 1) {
 					System.out.println(
-							"O medo invade o seu coração e você sente que ainda não está à altura do desafio. Você se volta para a noite lá fora e corre em direção à segurança.");
+							"O medo invade o seu coraï¿½ï¿½o e vocï¿½ sente que ainda nï¿½o estï¿½ ï¿½ altura do desafio. Vocï¿½ se volta para a noite lï¿½ fora e corre em direï¿½ï¿½o ï¿½ seguranï¿½a.");
 					System.out.println("***** JOGO ENCERRADO *****");
 					System.exit(0);// End game
 				} else if (chooseWay == 2) {
 					System.out.println(
-							"Você caminha, atento a todos os seus sentidos, por vários metros, até visualizar a frente uma fonte de luz, que você imagina ser a chama de uma tocha, vindo de dentro de uma porta aberta.");
+							"Vocï¿½ caminha, atento a todos os seus sentidos, por vï¿½rios metros, atï¿½ visualizar a frente uma fonte de luz, que vocï¿½ imagina ser a chama de uma tocha, vindo de dentro de uma porta aberta.");
 					System.out.println(
-							"Você se pergunta se dentro dessa sala pode haver inimigos, ou alguma armadilha, e pondera sobre como passar pela porta.\r\n"
+							"Vocï¿½ se pergunta se dentro dessa sala pode haver inimigos, ou alguma armadilha, e pondera sobre como passar pela porta.\r\n"
 									+ "");
 					break;
 				}
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("Opï¿½ï¿½o Invï¿½lida! Por favor digite apenas 1 nï¿½mero!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			} catch (InputMismatchException exception) {
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				System.out.println("Opção Inválida! Por favor digite apenas números!");
+				System.out.println("Opï¿½ï¿½o Invï¿½lida! Por favor digite apenas nï¿½meros!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				keyboard.next();
 			}
@@ -205,40 +205,40 @@ public class Main {
 
 				if (firstDoor == 1) {
 					System.out.println(
-							"Você toma cuidado e vai caminhando vagarosamente em direção à luz. Quando você pisa exatamente embaixo da porta, você sente o chão ceder levemente, como se tivesse pisado em uma pedra solta. Você ouve um ruído de mecanismos se movimentando, e uma escotilha se abre no teto atrás de você, no corredor. Flechas voam da escotilha em sua direção, e você salta para dentro da sala, porém uma delas te acerta na perna.");
+							"Vocï¿½ toma cuidado e vai caminhando vagarosamente em direï¿½ï¿½o ï¿½ luz. Quando vocï¿½ pisa exatamente embaixo da porta, vocï¿½ sente o chï¿½o ceder levemente, como se tivesse pisado em uma pedra solta. Vocï¿½ ouve um ruï¿½do de mecanismos se movimentando, e uma escotilha se abre no teto atrï¿½s de vocï¿½, no corredor. Flechas voam da escotilha em sua direï¿½ï¿½o, e vocï¿½ salta para dentro da sala, porï¿½m uma delas te acerta na perna.");
 					int lostPoints = combat.getPlayer().getWarrior().getArrow().getDamage() + dice;
 					combat.getPlayer().setHealth(combat.getPlayer().getHealth() - lostPoints);
 					System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-					System.out.printf("VOCÊ PERDEU %d PONTOS DE VIDA! SUA VIDA ATUAL É DE %d PONTOS.\n", lostPoints,
+					System.out.printf("VOCï¿½ PERDEU %d PONTOS DE VIDA! SUA VIDA ATUAL ï¿½ DE %d PONTOS.\n", lostPoints,
 							combat.getPlayer().getHealth());
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 					break;
 				} else if (firstDoor == 2) {
 					System.out.println(
-							"Você respira fundo e desata a correr em direção à sala. Quando passa pela porta, sente que pisou em uma pedra solta, mas não dá muita importância e segue para dentro da sala, olhando ao redor à procura de inimigos. Não tem ninguém, mas você ouve sons de flechas batendo na pedra atrás de você, e quando se vira, vê várias flechas no chão. Espiando pela porta, você entende que pisou em uma armadilha que soltou flechas de uma escotilha aberta no teto, mas por sorte você entrou correndo e conseguiu escapar desse ataque surpresa.");
+							"Vocï¿½ respira fundo e desata a correr em direï¿½ï¿½o ï¿½ sala. Quando passa pela porta, sente que pisou em uma pedra solta, mas nï¿½o dï¿½ muita importï¿½ncia e segue para dentro da sala, olhando ao redor ï¿½ procura de inimigos. Nï¿½o tem ninguï¿½m, mas vocï¿½ ouve sons de flechas batendo na pedra atrï¿½s de vocï¿½, e quando se vira, vï¿½ vï¿½rias flechas no chï¿½o. Espiando pela porta, vocï¿½ entende que pisou em uma armadilha que soltou flechas de uma escotilha aberta no teto, mas por sorte vocï¿½ entrou correndo e conseguiu escapar desse ataque surpresa.");
 					break;
 				} else if (firstDoor == 3) {
 					System.out.println(
-							"Você se concentra e pula em direção à luz, saltando de antes da porta até o interior da sala.");
+							"Vocï¿½ se concentra e pula em direï¿½ï¿½o ï¿½ luz, saltando de antes da porta atï¿½ o interior da sala.");
 					break;
 				}
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("Opï¿½ï¿½o Invï¿½lida! Por favor digite apenas 1 nï¿½mero!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			} catch (InputMismatchException exception) {
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				System.out.println("Opção Inválida! Por favor digite apenas números!");
+				System.out.println("Opï¿½ï¿½o Invï¿½lida! Por favor digite apenas nï¿½meros!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				keyboard.next();
 			}
 		}
 
 		System.out.println(
-				"Você se encontra sozinho em uma sala quadrada, contendo uma porta em cada parede. Uma delas foi aquela pela qual você entrou, que estava aberta, e as outras três estão fechadas. A porta à sua frente é a maior das quatro, com inscrições em seu entorno em uma língua que você não sabe ler, mas reconhece como sendo a língua antiga utilizada pelo inimigo. Você se aproxima da porta e percebe que ela está trancada por duas fechaduras douradas, e você entende que precisará primeiro derrotar o que estiver nas outras duas portas laterais, antes de conseguir enfrentar o líder.\r\n"
-						+ "\r\n" + "Você se dirige para a porta à direita.\r\n" + "\r\n"
-						+ "Você se aproxima, tentando ouvir o que acontece porta adentro, mas não escuta nada. Segura com mais força sua arma com uma mão, enquanto empurra a porta com a outra. Ao entrar, você se depara com uma sala espaçosa, com vários equipamentos de batalha pendurados nas paredes e dispostos em armários e mesas. Você imagina que este seja o arsenal do inimigo, onde estão guardados os equipamentos que seus soldados utilizam quando saem para espalhar o terror nas cidades e vilas da região.\r\n"
+				"Vocï¿½ se encontra sozinho em uma sala quadrada, contendo uma porta em cada parede. Uma delas foi aquela pela qual vocï¿½ entrou, que estava aberta, e as outras trï¿½s estï¿½o fechadas. A porta ï¿½ sua frente ï¿½ a maior das quatro, com inscriï¿½ï¿½es em seu entorno em uma lï¿½ngua que vocï¿½ nï¿½o sabe ler, mas reconhece como sendo a lï¿½ngua antiga utilizada pelo inimigo. Vocï¿½ se aproxima da porta e percebe que ela estï¿½ trancada por duas fechaduras douradas, e vocï¿½ entende que precisarï¿½ primeiro derrotar o que estiver nas outras duas portas laterais, antes de conseguir enfrentar o lï¿½der.\r\n"
+						+ "\r\n" + "Vocï¿½ se dirige para a porta ï¿½ direita.\r\n" + "\r\n"
+						+ "Vocï¿½ se aproxima, tentando ouvir o que acontece porta adentro, mas nï¿½o escuta nada. Segura com mais forï¿½a sua arma com uma mï¿½o, enquanto empurra a porta com a outra. Ao entrar, vocï¿½ se depara com uma sala espaï¿½osa, com vï¿½rios equipamentos de batalha pendurados nas paredes e dispostos em armï¿½rios e mesas. Vocï¿½ imagina que este seja o arsenal do inimigo, onde estï¿½o guardados os equipamentos que seus soldados utilizam quando saem para espalhar o terror nas cidades e vilas da regiï¿½o.\r\n"
 						+ "\r\n"
-						+ "Enquanto seu olhar percorre a sala, você ouve a porta se fechando e gira rapidamente para olhar para trás. Ali, de pé entre você e a porta fechada, bloqueando o caminho do seu destino, está um dos capitães do inimigo. Um orque horrendo, de armadura, capacete e espada em punho, em posição de combate. Ele avança em sua direção."
+						+ "Enquanto seu olhar percorre a sala, vocï¿½ ouve a porta se fechando e gira rapidamente para olhar para trï¿½s. Ali, de pï¿½ entre vocï¿½ e a porta fechada, bloqueando o caminho do seu destino, estï¿½ um dos capitï¿½es do inimigo. Um orque horrendo, de armadura, capacete e espada em punho, em posiï¿½ï¿½o de combate. Ele avanï¿½a em sua direï¿½ï¿½o."
 						+ "");
 
 		// ** Change Enemy **
@@ -248,7 +248,7 @@ public class Main {
 		combat.combatLoop();
 
 		System.out.println(
-				"Após derrotar o Armeiro, você percebe que seus equipamentos estão muito danificados, e olha em volta, encarando todas aquelas peças de armaduras resistentes e em ótimo estado.\r\n"
+				"Apï¿½s derrotar o Armeiro, vocï¿½ percebe que seus equipamentos estï¿½o muito danificados, e olha em volta, encarando todas aquelas peï¿½as de armaduras resistentes e em ï¿½timo estado.\r\n"
 						+ "");
 
 		// Choose if take the armor
@@ -263,24 +263,24 @@ public class Main {
 
 				if (armor == 1) {
 					System.out.println(
-							"Você resolve usar os equipamentos do inimigo contra ele, e trocar algumas peças suas, que estavam danificadas, pelas peças de armaduras existentes na sala. De armadura nova, você se sente mais protegido para os desafios à sua frente.");
+							"Vocï¿½ resolve usar os equipamentos do inimigo contra ele, e trocar algumas peï¿½as suas, que estavam danificadas, pelas peï¿½as de armaduras existentes na sala. De armadura nova, vocï¿½ se sente mais protegido para os desafios ï¿½ sua frente.");
 					combat.getPlayer().setDefensePoints(combat.getPlayer().getDefensePoints() + 5);
 					System.out.println("\n++++++++++++++++++++++++++++++++++++++++");
-					System.out.printf("VOCÊ RECEBEU 5 PONTOS EXTRAS DE DEFESA. SUA DEFESA ATUAL É %d PONTOS.\n",
+					System.out.printf("VOCï¿½ RECEBEU 5 PONTOS EXTRAS DE DEFESA. SUA DEFESA ATUAL ï¿½ %d PONTOS.\n",
 							combat.getPlayer().getDefensePoints());
 					System.out.println("++++++++++++++++++++++++++++++++++++++++\n");
 					break;
 				} else if (armor == 2) {
-					System.out.println("Você decide que não precisa utilizar nada que venha das mãos do inimigo.\n");
+					System.out.println("Vocï¿½ decide que nï¿½o precisa utilizar nada que venha das mï¿½os do inimigo.\n");
 					break;
 				}
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("Opï¿½ï¿½o Invï¿½lida! Por favor digite apenas 1 nï¿½mero!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 
 			} catch (InputMismatchException exception) {
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				System.out.println("Opção Inválida! Por favor digite apenas números!");
+				System.out.println("Opï¿½ï¿½o Invï¿½lida! Por favor digite apenas nï¿½meros!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 				keyboard.next();
 			}
@@ -290,48 +290,48 @@ public class Main {
 		combat.chooseAlchemist();
 
 		System.out.println(
-				"Em uma mesa, você encontra uma chave dourada, e sabe que aquela chave abre uma das fechaduras da porta do líder inimigo. Você pega a chave e guarda numa pequena bolsa que leva presa ao cinto.");
+				"Em uma mesa, vocï¿½ encontra uma chave dourada, e sabe que aquela chave abre uma das fechaduras da porta do lï¿½der inimigo. Vocï¿½ pega a chave e guarda numa pequena bolsa que leva presa ao cinto.");
 
 		System.out.println(
-				"Você retorna à sala anterior e se dirige à porta da esquerda. Você se aproxima, tentando ouvir o que acontece porta adentro, mas não escuta nada. Segura com mais força sua arma com uma mão, enquanto empurra a porta com a outra. Ao entrar, você se depara com uma sala parecida com a do arsenal, mas em vez de armaduras, existem vários potes e garrafas de vidro com conteúdos misteriosos e de cores diversas, e você entende que o capitão que vive ali, realiza experimentos com diversos ingredientes, criando poções utilizadas pelos soldados para aterrorizar a região.\r\n"
-						+ "No fundo da sala, olhando em sua direção, está outro dos capitães do inimigo. Um orque horrendo, de armadura, cajado em punho, em posição de combate. Ele avança em sua direção.\r\n"
+				"Vocï¿½ retorna ï¿½ sala anterior e se dirige ï¿½ porta da esquerda. Vocï¿½ se aproxima, tentando ouvir o que acontece porta adentro, mas nï¿½o escuta nada. Segura com mais forï¿½a sua arma com uma mï¿½o, enquanto empurra a porta com a outra. Ao entrar, vocï¿½ se depara com uma sala parecida com a do arsenal, mas em vez de armaduras, existem vï¿½rios potes e garrafas de vidro com conteï¿½dos misteriosos e de cores diversas, e vocï¿½ entende que o capitï¿½o que vive ali, realiza experimentos com diversos ingredientes, criando poï¿½ï¿½es utilizadas pelos soldados para aterrorizar a regiï¿½o.\r\n"
+						+ "No fundo da sala, olhando em sua direï¿½ï¿½o, estï¿½ outro dos capitï¿½es do inimigo. Um orque horrendo, de armadura, cajado em punho, em posiï¿½ï¿½o de combate. Ele avanï¿½a em sua direï¿½ï¿½o.\r\n"
 						+ "");
 
 		// COMBAT LOOP
 		combat.combatLoop();
 
 		System.out.println(
-				"Após derrotar o Alquimista, você olha em volta, tentando reconhecer alguma poção do estoque do inimigo. Em uma mesa, você reconhece uma pequena garrafa de vidro contendo um líquido levemente rosado, pega a garrafa e pondera se deve beber um gole.\n");
+				"Apï¿½s derrotar o Alquimista, vocï¿½ olha em volta, tentando reconhecer alguma poï¿½ï¿½o do estoque do inimigo. Em uma mesa, vocï¿½ reconhece uma pequena garrafa de vidro contendo um lï¿½quido levemente rosado, pega a garrafa e pondera se deve beber um gole.\n");
 
 		// Choose if drink potion
 		int drink = 0;
 		while (drink != 1 || drink != 2) {
 			try {
 				System.out.println("========================================");
-				System.out.printf("%s, QUER BEBER A POÇÃO?\n", combat.getPlayer().getName().toUpperCase());
-				System.out.println("1 - Beber\n" + "2 - Não beber");
+				System.out.printf("%s, QUER BEBER A POï¿½ï¿½O?\n", combat.getPlayer().getName().toUpperCase());
+				System.out.println("1 - Beber\n" + "2 - Nï¿½o beber");
 				System.out.print("Sua escolha: ");
 				drink = keyboard.nextInt();
 				if (drink == 1) {
 					System.out.println("\n++++++++++++++++++++++++++++++++++++++++");
-					System.out.println("VOCÊ SE SENTE REVIGORADO PARA SEGUIR ADIANTE!");
+					System.out.println("VOCï¿½ SE SENTE REVIGORADO PARA SEGUIR ADIANTE!");
 					combat.getPlayer().setHealth(combat.getInitialPlayerHealth());
-					System.out.printf("VOCÊ RECUPEROU TODOS OS SEUS PONTOS DE VIDA. SUA VIDA ATUAL É %d PONTOS\n",
+					System.out.printf("VOCï¿½ RECUPEROU TODOS OS SEUS PONTOS DE VIDA. SUA VIDA ATUAL ï¿½ %d PONTOS\n",
 							combat.getPlayer().getHealth());
 					System.out.println("++++++++++++++++++++++++++++++++++++++++\n");
 					break;
 				} else if (drink == 2) {
 					System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-					System.out.println("Você fica receoso de beber algo produzido pelo inimigo.");
+					System.out.println("Vocï¿½ fica receoso de beber algo produzido pelo inimigo.");
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 					break;
 				}
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("Opï¿½ï¿½o Invï¿½lida! Por favor digite apenas 1 nï¿½mero!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			} catch (InputMismatchException exception) {
 				System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				System.out.println("Opção Inválida! Por favor digite apenas números!");
+				System.out.println("Opï¿½ï¿½o Invï¿½lida! Por favor digite apenas nï¿½meros!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 				keyboard.next();
 			}
@@ -341,13 +341,13 @@ public class Main {
 		combat.chooseLeader();
 
 		System.out.println(
-				"Ao lado da porta, você vê uma chave dourada em cima de uma mesa, e sabe que aquela chave abre a outra fechadura da porta do líder inimigo. Você pega a chave e guarda na pequena bolsa que leva presa ao cinto.\r\n"
+				"Ao lado da porta, vocï¿½ vï¿½ uma chave dourada em cima de uma mesa, e sabe que aquela chave abre a outra fechadura da porta do lï¿½der inimigo. Vocï¿½ pega a chave e guarda na pequena bolsa que leva presa ao cinto.\r\n"
 						+ "\r\n"
-						+ "De volta à sala das portas, você se dirige à porta final. Coloca as chaves nas fechaduras, e a porta se abre. Seu coração acelera, memórias de toda a sua vida passam pela sua mente, e você percebe que está muito próximo do seu objetivo final. Segura sua arma com mais firmeza, foca no combate que você sabe que irá se seguir, e adentra a porta.\r\n"
+						+ "De volta ï¿½ sala das portas, vocï¿½ se dirige ï¿½ porta final. Coloca as chaves nas fechaduras, e a porta se abre. Seu coraï¿½ï¿½o acelera, memï¿½rias de toda a sua vida passam pela sua mente, e vocï¿½ percebe que estï¿½ muito prï¿½ximo do seu objetivo final. Segura sua arma com mais firmeza, foca no combate que vocï¿½ sabe que irï¿½ se seguir, e adentra a porta.\r\n"
 						+ "\r\n"
-						+ "Lá dentro, você vê o líder sentado em uma poltrona dourada, com duas fogueiras de cada lado, e prisioneiros acorrentados às paredes.\r\n"
+						+ "Lï¿½ dentro, vocï¿½ vï¿½ o lï¿½der sentado em uma poltrona dourada, com duas fogueiras de cada lado, e prisioneiros acorrentados ï¿½s paredes.\r\n"
 						+ "\r\n"
-						+ "Ele percebe sua chegada e se levanta com um salto, apanhando seu machado de guerra de lâmina dupla.\r\n"
+						+ "Ele percebe sua chegada e se levanta com um salto, apanhando seu machado de guerra de lï¿½mina dupla.\r\n"
 						+ "");
 
 		// Choose if attack leader
@@ -355,7 +355,7 @@ public class Main {
 		while (attackLeader != 1 || attackLeader != 2) {
 			try {
 				System.out.println("========================================");
-				System.out.printf("%s, QUER ATACAR O LÍDER?\n", combat.getPlayer().getName().toUpperCase());
+				System.out.printf("%s, QUER ATACAR O Lï¿½DER?\n", combat.getPlayer().getName().toUpperCase());
 				System.out.println("1 - Atacar\n" + "2 - Esperar");
 				System.out.print("Sua escolha: ");
 				attackLeader = keyboard.nextInt();
@@ -365,17 +365,17 @@ public class Main {
 					break;
 				} else if (attackLeader == 2) {
 					System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-					System.out.println("Você decidiu fugir!");
+					System.out.println("Vocï¿½ decidiu fugir!");
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 					System.exit(0);
 				}
 
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				System.out.println("Opção Inválida! Por favor digite apenas 1 número!");
+				System.out.println("Opï¿½ï¿½o Invï¿½lida! Por favor digite apenas 1 nï¿½mero!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 			} catch (InputMismatchException exception) {
 				System.out.println("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				System.out.println("Opção Inválida! Por favor digite apenas números!");
+				System.out.println("Opï¿½ï¿½o Invï¿½lida! Por favor digite apenas nï¿½meros!");
 				System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
 				keyboard.next();
 			}
@@ -383,14 +383,14 @@ public class Main {
 
 		if (combat.getPlayer().getMotivation() == 1) {
 			System.out.println(
-					"Você obteve sua vingança. Você se ajoelha e cai no choro, invadido por uma sensação de alívio e felicidade. Você se vingou, tudo que sempre quis, está feito. Agora você pode seguir sua vida.");
+					"Vocï¿½ obteve sua vinganï¿½a. Vocï¿½ se ajoelha e cai no choro, invadido por uma sensaï¿½ï¿½o de alï¿½vio e felicidade. Vocï¿½ se vingou, tudo que sempre quis, estï¿½ feito. Agora vocï¿½ pode seguir sua vida.");
 		} else if (combat.getPlayer().getMotivation() == 2) {
 			System.out.println(
-					"O êxtase em que você se encontra não cabe dentro de si. Você se ajoelha e grita de alegria. A glória o aguarda, você a conquistou.");
+					"O ï¿½xtase em que vocï¿½ se encontra nï¿½o cabe dentro de si. Vocï¿½ se ajoelha e grita de alegria. A glï¿½ria o aguarda, vocï¿½ a conquistou.");
 		}
 
 		System.out.println(
-				"Você se levanta, olha para os prisioneiros, vai de um em um e os liberta, e todos vocês saem em direção à noite, retornando à cidade. Seu dever está cumprido.");
+				"Vocï¿½ se levanta, olha para os prisioneiros, vai de um em um e os liberta, e todos vocï¿½s saem em direï¿½ï¿½o ï¿½ noite, retornando ï¿½ cidade. Seu dever estï¿½ cumprido.");
 
 		System.out.println("");
 		System.out.println("");
